@@ -1,0 +1,102 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Introduction</h3>
+    </div>  
+    <div class="panel-body row">
+        <div class="col-md-12">
+            <p>Welcome to Jaglion's cockpit! Using this tool, you can allow your on-premise Hadoop cluster to take advantage of HDInsight storage and compute capacity in the cloud. This tool enables you to configure, execute and monitor the hybrid data flows. This is pretty advanced technology - but no worries, this tool will walk you through the steps.</p>
+        </div>
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon">Data Files Directory</span>
+                <input required type="text" id="inputdir-display" {{action 'selectDirectory' '#inputdir'}} class="form-control" placeholder="Click to Choose" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon">Output Directory</span>
+                <input required type="text" id="outputdir-display" {{action 'selectDirectory' '#outputdir'}} class="form-control" placeholder="Click to Choose" />
+            </div>
+        </div>
+    </div>
+    <input type="file" id="inputdir" class="form-control moved" {{action 'updateDirectory' 'inputdir' on='change'}} nwdirectory />
+    <input type="file" id="outputdir" class="form-control moved" {{action 'updateDirectory' 'outputdir' on='change'}} nwdirectory />
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Azure HDInsight Cluster Configuration</h3>
+    </div>  
+    <div class="panel-body row inputgroup">
+        <div class="col-md-12">
+            <p>This configuration is for the Microsoft Azure HDInsight cluster. If you have questions, please consult the documentation.</p>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon">Cluster Name</span>
+                {{input value=clusterName type="text" id="clusterName" class="form-control" placeholder="Jaglion" }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon">Cluster Location</span>
+                <select {{action 'updateLocation' on='change'}} id="clusterLocation" class="form-control">
+                    <option disabled selected style="display:none">Please select a location...</option>
+                    <option>Central US</option>
+                    <option>East US</option>
+                    <option>East US 2</option>
+                    <option>US Gov Iowa</option>
+                    <option>US Gov Virgina</option>
+                    <option>North Central US</option>
+                    <option>South Central US</option>
+                    <option>West US</option>
+                    <option>North Europe</option>
+                    <option>West Europe</option>
+                    <option>East Asia</option>
+                    <option>Southeast Asia</option>
+                    <option>Japan East</option>
+                    <option>Japan West</option>
+                    <option>Brazil South</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon">Number of Cluster Nodes</span>
+                {{input type="number" value=clusterNodes id="clusterNodes" class="form-control" placeholder="5"}}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon">Storage Account Name</span>
+                {{input type="text" value=storageAccountName id="storageAccountName" class="form-control" placeholder="jaglion.blob.core.windows.net"}}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon">Storage Account Key</span>
+                {{input type="text" value=storageAccountKey id="storageAccountKey" class="form-control" placeholder="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon">Storage Account Container</span>
+                {{input type="text" value=storageAccountContainer id="storageAccountContainer" class="form-control" placeholder="default"}}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon">Username</span>
+                {{input type="text" value=clusterUsername id="clusterUsername" class="form-control" placeholder="jaglion"}}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon">Password</span>
+                {{input type="password" value=clusterPassword id="clusterPassword" class="form-control" placeholder=""}}
+            </div>
+        </div>
+        <div class="col-md-12" id="submitArea">
+            <a href="#" {{action 'setConfig'}} class="btn btn-block btn-lg btn-primary"><span class="fui-upload"></span> Create Configuration</a>
+        </div>
+    </div>
+</div>

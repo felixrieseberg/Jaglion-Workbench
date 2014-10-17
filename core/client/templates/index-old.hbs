@@ -1,0 +1,41 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Directories Configuration</h3>
+    </div>  
+    <div class="panel-body row" id="config-directories">
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon">Configuration Files Directory</span>
+                <input required type="text" id="configdir-display" {{action 'selectDirectory' '#configdir'}} class="form-control" placeholder="Click to Choose" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon">Data Files Directory</span>
+                <input required type="text" id="datadir-display" {{action 'selectDirectory' '#datadir'}} class="form-control" placeholder="Click to Choose" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon">Output Directory</span>
+                <input required type="text" id="outputbase-display" {{action 'selectDirectory' '#outputbase'}} class="form-control" placeholder="Click to Choose" />
+            </div>
+        </div>
+    </div>
+    <input type="file" id="configdir" class="form-control moved" {{action 'updateDirectory' 'configdir' on='change'}} nwdirectory />
+    <input type="file" id="datadir" class="form-control moved" {{action 'updateDirectory' 'datadir' on='change'}} nwdirectory />
+    <input type="file" id="outputbase" class="form-control moved" {{action 'updateDirectory' 'outputbase' on='change'}} nwdirectory />
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Execute</h3>
+    </div>  
+    <div class="panel-body row">
+        <div class="col-md-12">
+            <p>Once you have selected all three folders, we can run the local Jaglion script. Please ensure that the folders include the required files, especially <em>XmlExtraction.xml</em>, <em>MemoryDumpTranslationConfiguration.xml</em>, <em>DatasetTableUploadConfiguration.xml</em> and <em>MemoryDumpAttributeTranslation.csv</em>.</p>
+        </div>
+        <div class="col-md-12" id="submitArea">
+            <a href="#" {{action 'runScript'}} class="btn btn-block btn-lg btn-primary"><span class="fui-play"></span> Execute Jaglion Script</a>
+        </div>
+    </div>
+</div>
