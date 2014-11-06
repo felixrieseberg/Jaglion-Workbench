@@ -2,15 +2,16 @@ Jaglion.JgModalComponent = Ember.Component.extend({
     classNames: ['primary'],
 
     actions: {
-        ok: function() {
+        close: function() {
             this.$('.modal').modal('hide');
-            this.sendAction('ok');
-        }
+            return this.sendAction();
+        },
+
     },
 
     show: function() {
-        this.$('.modal').modal().on('hidden.bs.modal', function() {
-            this.sendAction('close');
+        this.$('.modal').modal('show').on('hidden.bs.modal', function() {
+            this.sendAction();
         }.bind(this));
     }.on('didInsertElement')
 

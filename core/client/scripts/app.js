@@ -1,6 +1,7 @@
 var Jaglion = window.Jaglion = Ember.Application.create();
 
 require('scripts/controllers/*');
+require('scripts/controllers/modals/*');
 require('scripts/store');
 require('scripts/models/*');
 require('scripts/routes/*');
