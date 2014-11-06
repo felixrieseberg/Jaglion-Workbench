@@ -1,4 +1,4 @@
-var debug           = require('debug')('jaglion-scriptrunner'),
+var debug           = require('debug')('jg-scriptrunner'),
     Promise         = require('bluebird'),
     exec            = require('child_process').exec,
     fs              = require('fs');

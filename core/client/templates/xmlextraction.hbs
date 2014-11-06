@@ -3,6 +3,20 @@
     <h3 class="panel-title">Device Data Extraction Configuration</h3>
   </div>    
     <div class="panel-body dfd-panel">
-        
+         <div class="panel-body row">
+            <div class="col-md-12">
+                <p>This XML Exctraction tool allows you to define which parts of your source should be extracted and processed.</p>
+            </div>
+            <div class="col-md-8">
+                <div class="input-group">
+                    <span class="input-group-addon">Input XML File</span>
+                    {{input value=sourceFile class="form-control" placeholder="/path/to/your/xmlfile.xml"}}
+                </div>
+            </div>
+            <div class="col-md-4">
+                <a href="#" {{action 'getJobNames'}} class="btn btn-block btn-lg btn-primary btn-inputheight"><span class="fui-upload"></span> Get Job Names</a>
+            </div>
+        </div>
     </div>
 </div>
+{{outlet jobnames}}

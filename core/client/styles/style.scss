@@ -2,16 +2,14 @@ $icon-font-path: "../styles/fonts/"; // Change the path to the fonts
 @import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap";
 @import "flatui";
 @import "mobile";
+@import "selectize.bs3";
+@import "selectize";
 
 html, body {
     margin: 30px 0 0 0;
 }
 
-[data-ember-action] {
-    cursor: pointer;
-}
-
-// Main
+// Various Correction Classes
 ////////////////////////////////////////
 
 .main {
@@ -33,10 +31,6 @@ html, body {
 
 }
 
-.input-group {
-    padding-top: 5px;
-} 
-
 select.form-control {
     -webkit-appearance: none;
 }
@@ -44,6 +38,15 @@ select.form-control {
 .modal-footer {
     margin-top: 0;
 }
+
+.nav li, [data-ember-action] {
+    cursor: pointer;
+}
+
+.btn-inputheight {
+    height: 42px;
+}
+
 
 // Data Flow Defintion Panel
 ////////////////////////////////////////
@@ -54,8 +57,6 @@ select.form-control {
         width: 100%;
     }
 }
-
-
 
 .moved {
     position: absolute;
@@ -72,3 +73,4 @@ select.form-control {
         margin-right: auto;
     }
 }
+

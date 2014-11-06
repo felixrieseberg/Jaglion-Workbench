@@ -12,8 +12,9 @@ var config = {
     clusterNodes: process.env.clusterNodes || 0,
     storageAccountName: process.env.storageAccountName || '',
     storageAccountKey: process.env.storageAccountKey || '',
-    storageAccountContainer: process.env.storageAccountContainer || ''
+    storageAccountContainer: process.env.storageAccountContainer || '',
 
+    // XML Extractor
 }
 
 module.exports = config;

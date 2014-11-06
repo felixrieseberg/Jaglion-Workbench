@@ -1,5 +1,5 @@
 var config          = require('../config'),
-    debug           = require('debug')('jaglion-azure'),
+    debug           = require('debug')('jg-azure'),
     Promise         = require('bluebird'),
     fs              = require('fs'),
     scriptRunner    = require('./scriptRunner');

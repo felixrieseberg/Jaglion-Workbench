@@ -1,5 +1,5 @@
 {
-  "name": "jaglion",
+  "name": "Jaglion",
   "version": "0.0.0",
   "dependencies": {
     "ember": "1.6.1",
@@ -10,9 +10,10 @@
     "jstree": "3.0.4",
     "jquery": "~2.1.1",
     "ember-mocha-adapter": "~0.2.1",
+    "selectize": "~0.11.2"
   },
   "resolutions": {
-    "ember": "1.6.1"
+    "ember": ">= 1.0.0"
   },
   "devDependencies": {
     "ember-mocha-adapter": "0.2.1"

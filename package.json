@@ -2,7 +2,9 @@
   "name": "Jaglion",
   "author": "Felix Rieseberg",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "xml2js": "^0.4.4"
+  },
   "devDependencies": {
     "connect-livereload": "~0.2.0",
     "grunt": "~0.4.1",

@@ -1,11 +1,12 @@
 var express         = require('express'),
     config          = require('../config'),
-    debug           = require('debug')('jaglion-api'),
+    debug           = require('debug')('jg-apiRouter'),
     Promise         = require('bluebird'),
     router          = express.Router(),
 
     scriptRunner    = require('./scriptRunner'),
-    azure           = require('./azure');
+    azure           = require('./azure'),
+    xmlextraction   = require('./xmlextraction');
 
 router.get('/config', function (req, res) {
     debug('Getting Config');
@@ -23,6 +24,19 @@ router.post('/config', function (req, res) {
     }
 
     res.json({ config: config });
+});
+
+router.post('/xmldissect', function (req, res) {
+    debug('Dissecting Source XML File', req.body);
+
+    if (req.body && req.body.sourceFile) {
+        xmlextraction.dissectSourceFile(req.body.sourceFile)
+        .then(function (result) {
+            res.json(result);
+        }).catch(function (error) {
+            res.json({ error: error})
+        });
+    }
 });
 
 router.post('/azureconfig', function (req, res) {

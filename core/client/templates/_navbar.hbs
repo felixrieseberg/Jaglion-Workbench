@@ -11,11 +11,11 @@
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                <li class="active">{{#link-to 'config'}}Configuration{{/link-to}}</li>
-                <li>{{#link-to 'xmlextraction'}}XML Extraction{{/link-to}}</li>
-                <li>{{#link-to 'anonymization'}}Anonymization{{/link-to}}</li>
-                <li>{{#link-to 'hdinsighttranslation'}}HDInsight Translation{{/link-to}}</li>
-                <li>{{#link-to 'deanonymize'}}Deanonymization{{/link-to}}</li>
+                {{#link-to 'config' tagName='li' href=false}}<a {{bind-attr href="view.href"}}>Configuration</a>{{/link-to}}
+                {{#link-to 'xmlextraction' tagName='li' href=false}}<a {{bind-attr href="view.href"}}>XML Extraction</a>{{/link-to}}
+                {{#link-to 'anonymization' tagName='li' href=false}}<a {{bind-attr href="view.href"}}>Anonymization</a>{{/link-to}}
+                {{#link-to 'hdinsighttranslation' tagName='li' href=false}}<a {{bind-attr href="view.href"}}>HDInsight Translation</a>{{/link-to}}
+                {{#link-to 'deanonymize' tagName='li' href=false}}<a {{bind-attr href="view.href"}}>Deanonymization</a>{{/link-to}}
             </ul>
         </div>
     </nav>
