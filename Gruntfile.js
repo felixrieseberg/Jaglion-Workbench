@@ -27,6 +27,18 @@ module.exports = function (grunt) {
                 files: ['core/client/scripts/{,*/}*.js'],
                 tasks: ['neuter']
             },
+            liveapi: {
+                files: [
+                    'core/.tmp/scripts/*.js',
+                    'core/client/*.html',
+                    'core/{.tmp,client}/styles/{,*/}*.css',
+                    'core/client/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+                ],
+                tasks: ['build'],
+                options: {
+                    spawn: true
+                }
+            },
             livereload: {
                 options: {
                     livereload: LIVERELOAD_PORT
@@ -271,7 +283,14 @@ module.exports = function (grunt) {
                 'imagemin',
                 'svgmin',
                 'htmlmin'
-            ]
+            ],
+            liveapi: {
+                tasks: ['watch:liveapi', 'shell:server'],
+                options: {
+                    // Changing this will result in nodaemon port conflicts.
+                    logConcurrentOutput: false;
+                }
+            }
         },
         emberTemplates: {
             options: {
@@ -317,8 +336,25 @@ module.exports = function (grunt) {
                 },
                 src: ['public/**/*', 'node_modules/**/*', '!node_modules/grunt**/**', 'updater/**/*', 'updater_client/**/*', 'views/**/*', '*.js', '*.html', '*.json'] // Your node-webkit app
             }
+        },
+        shell: {
+            server: {
+                command: 'grunt dev',
+                options: {
+                    execOptions: { 
+                        detached: true,
+                        cwd: './core/server/'
+                    },
+                    stdout: true,
+                    stderr: true,
+                    failOnError: true
+                }
+            }
         }
+
     });
+
+    grunt.registerTask('liveapi', ['build', 'concurrent:liveapi']);
 
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
