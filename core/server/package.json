@@ -18,7 +18,8 @@
     "request": "^2.44.0",
     "request-enhanced": "^0.1.1",
     "serve-favicon": "~2.1.3",
-    "underscore": "^1.7.0"
+    "underscore": "^1.7.0",
+    "xml2js": "^0.4.4"
   },
   "window": {
     "title": "Jaglion",
@@ -31,6 +32,11 @@
     "position": "center"
   },
   "devDependencies": {
-    "grunt-node-webkit-builder": "^0.3.0"
+    "grunt-node-webkit-builder": "^0.3.0",
+    "grunt-concurrent": "^1.0.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-nodemon": "^0.3.0"
   }
 }
