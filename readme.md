@@ -12,8 +12,13 @@ The workbench consists of two major parts: An ember web client application (in `
 - `cd ./core/server/ && npm install` Install all required packages for the node server component in ./core/server/node_modules
 - `node app.js` Starts the Node server, available at 0.0.0.0/localhost:3000 (please note that this command must be run from `./core/server)
 
+### Running The Whole Package
+The workbench consits of two pieces - the API server and the Ember app. Both are technically their own projects and come with their own grunt buildchain, node modules and other pieces of baggage. Running 'the whole package' requires building of the Ember app and running the API node server. To simplify development, the root grunt is able to build the Ember app, start the API server and automatically rebuild/reload should any of the source files change.
+
+**Please note that this command will not result in any output from the Ember watch task or the node server. Run the whole package with :** `./grunt liveapi`
+
 ### Working on the Ember App
-Many parts of the Ember app development workflow are automated using Grunt and the scafollding takes care of all required optimizations. To make changes to the Ember app, make your changes in `./core/client`. Running `grunt serve` will start a server at 0.0.0.0/localhost:3000 that automatically rebuilds, recompiles and reloads an open page upon changes.
+Many parts of the Ember app development workflow are automated using Grunt and the scaffolding takes care of all required optimizations. To make changes to the Ember app, make your changes in `./core/client`. Running `grunt serve` will start a server at 0.0.0.0/localhost:3000 that automatically rebuilds, recompiles and reloads an open page upon changes.
 
 #### Architecture
 At this point, the Ember app follows ember-cli conventions for a typical MVC app. Controllers are in `scripts/controllers`, models in `scripts/models`, routes in `scripts/routes`, views in `scripts/views`. Guidelines and recommendations outlined in the [official Ember guides](http://emberjs.com/guides/) are applicable without exception.

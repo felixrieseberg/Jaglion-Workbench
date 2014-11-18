@@ -74,3 +74,37 @@ select.form-control {
     }
 }
 
+// Job Extraction Panel
+////////////////////////////////////////
+
+.job-attributes {
+    height: 44px;
+}
+
+.job-attributes a[data-ember-action] {
+    margin-top: 10px;
+}
+
+.job-attributes label.checkbox {
+    font-size: 15px;
+    display: inline-block;
+    padding-right: 15px;
+}
+
+.panel-body.row {
+    -webkit-animation: fade 5s;
+    animation: fade 5s;
+    opacity: 1;
+}
+
+textarea.config {
+    width: 100%;
+    height: 200px;
+}
+
+// Azure Config Panel
+////////////////////////////////////////
+
+.inputgroup .col-md-4 {
+    margin-top: 10px;
+}

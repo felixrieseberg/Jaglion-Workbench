@@ -1,5 +1,5 @@
 Jaglion.XmlextractionView = Ember.View.extend({
-    didInsertElement : function(){
+    didInsertElement : function () {
         this._super();
     },
 

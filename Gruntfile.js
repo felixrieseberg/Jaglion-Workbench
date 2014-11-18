@@ -288,7 +288,7 @@ module.exports = function (grunt) {
                 tasks: ['watch:liveapi', 'shell:server'],
                 options: {
                     // Changing this will result in nodaemon port conflicts.
-                    logConcurrentOutput: true
+                    logConcurrentOutput: false
                 }
             }
         },

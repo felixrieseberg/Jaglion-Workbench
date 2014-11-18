@@ -1,13 +1,146 @@
+{{#unless configCreated}}
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title">Select Job Names to Extract</h3>
+        <h3 class="panel-title">Job Extraction</h3>
     </div>
-    <div class="panel-body row">
-        <div class="col-md-12">
-            <p>Please select the names of the 'jobs' you would like to extract:</p>
+    <div class="panel-body dfd-panel">
+        {{#unless jobNamesSelected}}
+            <div class="panel-body row">
+                <div class="col-md-12">
+                    <p>Please select the names of the 'jobs' you would like to extract:</p>
+                </div>
+                <div class="col-md-12">
+                    {{jg-selectize options=jobNameOptions id='jobnames' selection=selectedJobNameOptions}}
+                </div>
+                <div class="col-md-3 col-md-offset-9">
+                    <a href="#" {{action 'confirmJobNameSelection'}} class="btn btn-block btn-lg btn-primary btn-inputheight">
+                        <span class="fui-check"></span> Confirm Selection
+                    </a>
+                </div>
+            </div>
+        {{/unless}}
+        {{#if jobNamesSelected}}
+            <div class="panel-body row">
+                <div class="col-md-3 col-md-offset-9">
+                    <a href="#" {{action 'addScannerNode'}} class="btn btn-inverse btn-block btn-sm">
+                        <span class="fui-plus"></span> Add Custom Scanner Node
+                    </a>
+                </div>
+            </div>
+            {{#each job in scannerNodes}}
+                <div class="panel-body row">
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            <span class="input-group-addon">Name</span>
+                            {{input value=job.name class="form-control"}}
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">Scanner Token</span>
+                            {{input value=job.scannerToken class="form-control"}}
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">XPath</span>
+                            {{input value=job.xpath class="form-control"}}
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            <span class="input-group-addon">Extractor</span>
+                            {{input value=job.extractor type="number" class="form-control"}}
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            <span class="input-group-addon">Column</span>
+                            {{input value=job.column type="number" class="form-control"}}
+                        </div>
+                    </div>
+                    <div class="col-md-6 job-attributes">
+                        <label class="checkbox">
+                            {{jg-styled-checkbox type="checkbox" name="hasAttributes" checked=job.hasAttributes}} Has Attributes
+                        </label>
+                        <label class="checkbox">
+                            {{jg-styled-checkbox type="checkbox" name="hasAttributes" checked=job.getChildren}} Get Children
+                        </label>
+                        <label class="checkbox">
+                            {{jg-styled-checkbox type="checkbox" name="hasAttributes" checked=job.extractOnStartTagOnly}} Extract as Start Tag Only
+                        </label>
+                    </div>
+                    <div class="col-md-2 col-md-offset-4 job-attributes">
+                        <a href="#" {{action 'addAttributeScanner' job}} class="btn btn-default btn-block btn-xs">
+                            <span class="fui-plus"></span> Add Attribute Scanner
+                        </a>
+                    </div>
+                    {{#each extra in job.extras}}
+                        <div class="panel-body row">
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">XPath</span>
+                                    {{input value=extra.xpath class="form-control"}}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Column</span>
+                                    {{input value=extra.column class="form-control"}}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Extractor</span>
+                                    {{input value=extra.extractor class="form-control"}}
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+                <hr />
+            {{/each}}
+                <div class="panel-body row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">Dataset Name</span>
+                            {{input value=datasetName class="form-control" placeholder="dataset"}}
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">Result Name</span>
+                            {{input value=resultName class="form-control" placeholder="result"}}
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">Number of Columns</span>
+                            {{input value=numberColumns type="number" class="form-control" placeholder="6"}}
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#" {{action 'createConfig'}} class="btn btn-block btn-lg btn-primary btn-inputheight"><span class="fui-check"></span> Create XML Configuration</a>
+                    </div>
+                </div>
+        {{/if}}
+    </div>
+</div>
+{{/unless}}
+{{#if configCreated}}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">XML Configuration File</h3>
+    </div>
+    <div class="panel-body dfd-panel">
+        <div class="col-md-3 col-md-offset-9">
+            <a href="#" {{action 'selectOutput'}} class="btn btn-inverse btn-block btn-sm">
+                <span class="fui-cmd"></span> Select XML Configuration
+            </a>
         </div>
         <div class="col-md-12">
-            {{jg-selectize options=options id='jobnames'}}
-        </div>  
+            {{textarea value=xmlConfigString}}
+        </div>
     </div>
-</div>  
+</div>
+{{/if}}

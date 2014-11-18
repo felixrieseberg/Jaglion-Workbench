@@ -8,6 +8,7 @@ Jaglion.JgSelectizeComponent = Ember.Component.extend({
             searchField: 'label',
 
             onChange: function(value) {
+                console.log(value);
                 this.set('selection', value);
             }.bind(this)
         });
