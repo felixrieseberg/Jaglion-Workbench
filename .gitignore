@@ -42,3 +42,5 @@ clientdist
 eatd-pipeline.sh
 *-exec.sh
 content
+builds
+cache

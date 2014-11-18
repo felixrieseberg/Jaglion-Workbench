@@ -34,22 +34,19 @@ module.exports = function(grunt) {
         nodewebkit: {
             win: {
                 options: {
-                    name: 'Ghost Updater for Azure',
+                    name: 'Jaglion Workbench',
                     platforms: ['win'],
-                    buildDir: './builds',
-                    winIco: './public/images/icon.ico'
+                    buildDir: '../../builds'
                 },
-                src: ['public/**/*', 'node_modules/**/*', '!node_modules/grunt**/**', 'updater/**/*', 'updater_client/**/*', 'views/**/*', '*.js', '*.html', '*.json'] // Your node-webkit app
+                src: ['./api/**/*', './bin/**/*', './clientdist/**/*', './node_modules/**/*', '*.js', '*.html', '*.json', '!./node_modules/grunt**/**'] // Your node-webkit app
             },
             unix: {
                 options: {
-                    name: 'Ghost Updater for Azure',
+                    name: 'Jaglion Workbench',
                     platforms: ['osx', 'linux32'],
-                    buildDir: './builds',
-                    macIcns: './public/images/icon.icns',
-                    winIco: './public/images/icon.ico'
+                    buildDir: '../../builds'
                 },
-                src: ['public/**/*', 'node_modules/**/*', '!node_modules/grunt**/**', 'updater/**/*', 'updater_client/**/*', 'views/**/*', '*.js', '*.html', '*.json'] // Your node-webkit app
+                src: ['./api/**/*', './bin/**/*', './clientdist/**/*', './node_modules/**/*', '*.js', '*.html', '*.json', '!./node_modules/grunt**/**'] // Your node-webkit app
             }
         },
 

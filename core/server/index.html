@@ -1,9 +1,20 @@
-<!DOCTYPE html><html style="background-color: rgb(237, 236, 228);">
+<!DOCTYPE html><html>
 <head>
     <script>
         function bodyOnLoad(){
+            try {
+                var nw = require('nw.gui'),
+                win = nw.Window.get(),
+                nativeMenuBar = new nw.Menu({ type: "menubar" });
+                
+                nativeMenuBar.createMacBuiltin("Jaglion Workbench");
+                win.menu = nativeMenuBar;
+            } catch (e) {
+                
+            }
+
             require('./app.js');
-            window.location.assign('http://localhost:3000/index.html');
+            window.location.assign('http://localhost:3000/');
         }
     </script>
     <style>

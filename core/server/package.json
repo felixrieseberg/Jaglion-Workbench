@@ -29,5 +29,8 @@
     "height": 680,
     "resizable": true,
     "position": "center"
+  },
+  "devDependencies": {
+    "grunt-node-webkit-builder": "^0.3.0"
   }
 }
